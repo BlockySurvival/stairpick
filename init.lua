@@ -37,9 +37,6 @@ minetest.register_tool("stairpick:stairpick_mese",{
 })
 
 function stairpick.use_pick(itemstack, player, pointed_thing)
-		-- not exactly sure what to do here, pointed thing is a nodeDef?
-		--minetest.log("action",minetest.pos_to_string(pointed_thing.under))
-		--minetest.env:remove_node(pointed_thing.under)
 		if ( pointed_thing.under == nil )
 			return
 			
