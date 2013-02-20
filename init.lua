@@ -75,7 +75,7 @@ minetest.register_craft({
 	recipe = {
 				{'','default:steel_ingot','default:steel_ingot'},
 				{'default:steel_ingot','','default:stick'},
-				{'default:steel_ingot','','default:stick'}
+				{'','','default:stick'}
 			}
 })
 
@@ -85,7 +85,7 @@ minetest.register_craft({
 	recipe = {
 				{'','default:mese_crystal','default:mese_crystal'},
 				{'default:mese_crystal','','default:stick'},
-				{'default:mese_crystal','','default:stick'}
+				{'','','default:stick'}
 			}
 })
 
