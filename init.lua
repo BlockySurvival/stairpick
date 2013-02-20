@@ -37,9 +37,10 @@ minetest.register_tool("stairpick:stairpick_mese",{
 })
 
 function stairpick.use_pick(itemstack, player, pointed_thing)
-		if ( pointed_thing.under == nil )
+		if ( pointed_thing.under == nil ) then
 			return
-			
+		end
+		
 		node = minetest.env:get_node(pointed_thing.under)
 		local modname, nodename = string.match(node.name, "([^ ]+):([^ ]+)")
 		minetest.log('action',nodename)
