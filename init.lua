@@ -40,6 +40,9 @@ function stairpick.use_pick(itemstack, player, pointed_thing)
 		-- not exactly sure what to do here, pointed thing is a nodeDef?
 		--minetest.log("action",minetest.pos_to_string(pointed_thing.under))
 		--minetest.env:remove_node(pointed_thing.under)
+		if ( pointed_thing.under == nil )
+			return
+			
 		node = minetest.env:get_node(pointed_thing.under)
 		local modname, nodename = string.match(node.name, "([^ ]+):([^ ]+)")
 		minetest.log('action',nodename)
@@ -73,9 +76,9 @@ minetest.register_craft({
 	output = "stairpick:stairpick_steel",
 		
 	recipe = {
-				{'','default:steel_ingot','default:steel_ingot'},
-				{'default:steel_ingot','','default:stick'},
-				{'','','default:stick'}
+				{"","default:steel_ingot","default:steel_ingot"},
+				{"default:steel_ingot","","default:stick"},
+				{"","","default:stick"}
 			}
 })
 
@@ -83,9 +86,9 @@ minetest.register_craft({
 	output = "stairpick:stairpick_mese",
 		
 	recipe = {
-				{'','default:mese_crystal','default:mese_crystal'},
-				{'default:mese_crystal','','default:stick'},
-				{'','','default:stick'}
+				{"","default:mese_crystal","default:mese_crystal"},
+				{"default:mese_crystal","","default:stick"},
+				{"","","default:stick"}
 			}
 })
 
