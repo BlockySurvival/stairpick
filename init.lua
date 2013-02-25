@@ -73,14 +73,14 @@ function stairpick.use_pick(itemstack, player, pointed_thing)
 			local fakestack = ItemStack(minetest.registered_nodes[stairmod..":stair_"..nodename])
 			minetest.item_place(fakestack, player, pointed_thing)
 			if ( itemstack:get_name() == "stairpick:stairpick_steel" ) then
-				minetest.log("action","wear on stairpick_steel "..tostring(itemstack:get_wear()))
+				--minetest.log("action","wear on stairpick_steel "..tostring(itemstack:get_wear()))
 				itemstack:add_wear(1300)
-				minetest.log("action","wear on stairpick_steel "..tostring(itemstack:get_wear()))				
+				--minetest.log("action","wear on stairpick_steel "..tostring(itemstack:get_wear()))				
 			end
 			if ( itemstack:get_name() == "stairpick:stairpick_mese" ) then
-				minetest.log("action","wear on stairpick_mese "..tostring(itemstack:get_wear()))
+				--minetest.log("action","wear on stairpick_mese "..tostring(itemstack:get_wear()))
 				itemstack:add_wear(900)
-				minetest.log("action","wear on stairpick_mese "..tostring(itemstack:get_wear()))
+				--minetest.log("action","wear on stairpick_mese "..tostring(itemstack:get_wear()))
 			end
 		end
 		return itemstack
