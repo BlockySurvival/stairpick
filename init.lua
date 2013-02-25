@@ -24,6 +24,19 @@ minetest.register_tool("stairpick:stairpick_steel",{
 	end
 })
 
+minetest.register_craftitem("stairpick:stairpick_steel_head",{
+	description = "Head of steel stair pick",
+	inventory_image="stairpick_steel_head.png",
+	stack_max=1
+})
+
+minetest.register_craftitem("stairpick:stairpick_mese_head",{
+	description = "Head of mese stair pick",
+	inventory_image="stairpick_mese_head.png",
+	stack_max=1
+})
+
+
 minetest.register_tool("stairpick:stairpick_mese",{
 	description = "Pick specifically designed for carving stairs",
 	groups = {hard=3,metal=3},
@@ -43,7 +56,11 @@ function stairpick.use_pick(itemstack, player, pointed_thing)
 		
 		node = minetest.env:get_node(pointed_thing.under)
 		local modname, nodename = string.match(node.name, "([^ ]+):([^ ]+)")
-		minetest.log('action',nodename)
+		
+		if ( nodename == nil ) then
+			return
+		end 
+		
 		local stairmod = nil
 		if ( minetest.registered_nodes["stairs:stair_"..nodename] ~= nil ) then
 			stairmod = "stairs"
@@ -74,9 +91,9 @@ minetest.register_craft({
 	output = "stairpick:stairpick_steel",
 		
 	recipe = {
-				{"","default:steel_ingot","default:steel_ingot"},
-				{"default:steel_ingot","","default:stick"},
-				{"","","default:stick"}
+				{"","stairpick:stairpick_steel_head",""},
+				{"","default:stick",""},
+				{"","default:stick",""}
 			}
 })
 
@@ -84,9 +101,30 @@ minetest.register_craft({
 	output = "stairpick:stairpick_mese",
 		
 	recipe = {
-				{"","default:mese_crystal","default:mese_crystal"},
-				{"default:mese_crystal","","default:stick"},
-				{"","","default:stick"}
+				{"","stairpick:stairpick_mese_head",""},
+				{"","default:stick",""},
+				{"","default:stick",""}
 			}
 })
+
+minetest.register_craft({
+	output = "stairpick:stairpick_mese_head",
+	recipe = {
+				{ "","","default:mese_crystal" },
+				{ "","default:mese_crystal","default:mese_crystal" },
+				{ "default:mese_crystal","default:mese_crystal","default:mese_crystal" }
+			}
+})
+
+minetest.register_craft({
+	output = "stairpick:stairpick_steel_head",
+	recipe = {
+				{ "","","default:steel_ingot" },
+				{ "","default:steel_ingot","default:steel_ingot" },
+				{ "default:steel_ingot","default:steel_ingot","default:steel_ingot" }
+			}
+})
+				
+	
+
 
